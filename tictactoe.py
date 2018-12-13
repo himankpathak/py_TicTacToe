@@ -1,6 +1,6 @@
 
 def printlist():
-	print ("\n")
+	print ("")
 	print (l[0],"|",l[1],"|",l[2])
 	print (l[3],"|",l[4],"|",l[5])
 	print (l[6],"|",l[7],"|",l[8])
@@ -11,14 +11,27 @@ def funcm(z,ch,j):
 	if(z>8):
 		print("enter a valid character to place X or O")
 		return j
-	
 	else:
 		l[z]=ch
 		return j+1
 
+def namefunc():
+	global ch
+	if ch=="X":
+		return 0
+	else:
+		return 1
+
+def win():
+	global n
+	global name
+	n=1
+	print ("\n",name[namefunc()],"Wins!!\n")
+
 def maingame():
 
 	global n
+	global ch
 	j=0
 	while (j<9):
 		z=input()   
@@ -73,6 +86,5 @@ if __name__ == "__main__":
 	name.append(input("Enter the Name of Second Player: "))
 
 	printlist()
-	print ("\n")
 
 	maingame()
