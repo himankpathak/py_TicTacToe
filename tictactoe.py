@@ -5,11 +5,15 @@ def printlist():
 	print (l[3],"|",l[4],"|",l[5])
 	print (l[6],"|",l[7],"|",l[8])
 
-def funcm(z,ch,j):
+def funcm(ch,j):
 	global l
+	z=""
+	while (z==""):
+		z=input()
+		
 	z=ord(z)-97
-	if(z>8):
-		print("enter a valid character to place X or O")
+	if(z>8 or l[z]=="O" or l[z]=="X"):
+		print(">> enter a valid character to place X or O")
 		return j
 	else:
 		l[z]=ch
@@ -33,13 +37,12 @@ def maingame():
 	global n
 	global ch
 	j=0
-	while (j<9):
-		z=input()   
+	while (j<9): 
 		if(j%2==0):
 			ch="X"
 		else:
 			ch="O"
-		j=funcm(z,ch,j)
+		j=funcm(ch,j)
 		
 		printlist()
 		
